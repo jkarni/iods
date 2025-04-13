@@ -123,7 +123,7 @@ scene.add(ceiling);
 // === ENEMY AND GAMEPLAY LOGIC ===
 const enemies = [];
 const enemyClothes = [0x990000, 0x3366cc, 0x339966, 0xcc3333, 0x9933cc];
-const enemyNames = ["Chad", "Mildred", "Baron", "Sally", "Greg"];
+const enemyNames = ["Prof. Poop", "Grant", "Tech X", "Paper 3", "Data Ann"];
 
 for (let i = 0; i < enemyNames.length; i++) {
   const enemy = new THREE.Group();
@@ -173,14 +173,14 @@ for (let i = 0; i < enemyNames.length; i++) {
   tagCtx.font = '24px sans-serif';
   tagCtx.textAlign = 'center';
   tagCtx.textBaseline = 'middle';
-  tagCtx.fillText(enemyNames[i], tagCanvas.width / 2, tagCanvas.height / 2);
+  tagCtx.fillText(enemyNames[i], 170, tagCanvas.height / 2);
   const tagTexture = new THREE.CanvasTexture(tagCanvas);
   const nameTag = new THREE.Mesh(
     new THREE.PlaneGeometry(0.6, 0.2),
     new THREE.MeshBasicMaterial({ map: tagTexture, transparent: true })
   );
   nameTag.name = "nameTag";
-  nameTag.position.set(0, 1.4, 0.35);
+  nameTag.position.set(0.2, 1.2, 0.35);
   enemy.add(nameTag);
 
   enemy.userData = { name: enemyNames[i], kicked: false, nameTaken: false, nameTag };
@@ -242,7 +242,7 @@ function kick() {
       document.body.appendChild(star);
       setTimeout(() => star.remove(), 1000);
 
-      const audio = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_2f6bfcf4f1.mp3?filename=success-fanfare-trumpets-6185.mp3");
+      const audio = new Audio("supa.wav");
       audio.volume = 0.6;
       audio.play();
 
