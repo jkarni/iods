@@ -250,6 +250,9 @@ function kick() {
       if (remaining.length === 0) {
         document.getElementById("status").style.display = "none";
         document.getElementById("win-message").style.display = "block";
+        const audio = new Audio("sudoku.m4a");
+        audio.volume = 0.6;
+        audio.play();
         setTimeout(() => {
           document.body.innerHTML = '';
           const bananaPile = document.createElement('div');
